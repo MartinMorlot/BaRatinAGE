@@ -23,5 +23,6 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
+          name: BaRatinAGE-3.2.0_Linux.tar.gz
           path: target-packaged/BaRatinAGE-3.2.0_Linux.tar.gz
  
