@@ -23,7 +23,7 @@ pom.xml.versionsBackup
 /log/*.log
 *.jar
 *.bar.zip
-*.bam
+#*.bam
 /resources/help/*
 
 
