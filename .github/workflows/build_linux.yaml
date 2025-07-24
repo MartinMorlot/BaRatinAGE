@@ -15,9 +15,9 @@ jobs:
         shell: pwsh
         run: |
           ./build.ps1 "3.2.0" -archive -Path /tmp/samplemodule
-      
+
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact
         with:
           name: my-artifacts
           path: /tmp/samplemodule
