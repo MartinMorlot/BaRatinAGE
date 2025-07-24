@@ -11,6 +11,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Java setup 
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '19'
+
       - name: Build
         run: pwsh ./build.ps1 "3.2.0" -archive
 
