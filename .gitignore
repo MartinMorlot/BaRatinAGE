@@ -5,7 +5,8 @@
 pom.xml.versionsBackup
 
 # BaM exe folder and workspace folder
-/exe/*
+#/exe/*
+/exe/*_version/
 !/exe/README.txt
 
 # IDE specific stuff
