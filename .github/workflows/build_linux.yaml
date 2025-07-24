@@ -17,7 +17,7 @@ jobs:
           ./build.ps1 "3.2.0" -archive -Path /tmp/samplemodule
 
       - name: Upload artifacts
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: my-artifacts
           path: /tmp/samplemodule
