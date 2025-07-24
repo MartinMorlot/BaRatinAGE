@@ -1,8 +1,8 @@
 name: Publish PowerShell Build
 
 on:
-  release:
-    types: [created]
+  push:
+    branch: [develop-workflow]
 
 jobs:
   publish-to-gallery:
