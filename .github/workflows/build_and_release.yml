@@ -108,6 +108,14 @@ jobs:
             Copy-item -Force $d -Destination (Join-Path $appDir $d)
           }
 
+          # Make executable on Linux
+          if ("${{ runner.OS }}" -eq "Linux") {
+            $targetDir = "${{ matrix.MAIN_DIR }}"
+            $finalName = "BaRatinAGE"
+            $finalPath = Join-Path $targetDir $finalName
+            chmod +x $finalPath
+          }
+
       - name: Download latest example project files
         shell: bash # necessary
         env:
@@ -138,6 +146,14 @@ jobs:
           $zipPath = Get-ChildItem -Filter "BaM-*_${{ runner.OS }}.zip" | Select-Object -First 1
           Expand-Archive $zipPath.FullName -DestinationPath (Join-Path "${{ matrix.MAIN_DIR }}" "${{ env.EXT_EXE_DIR }}") -Force
 
+          # Make executable on Linux
+          if ("${{ runner.OS }}" -eq "Linux") {
+            $targetDir = Join-Path "${{ matrix.MAIN_DIR }}" "${{ env.EXT_EXE_DIR }}"
+            $finalName = "BaM"
+            $finalPath = Join-Path $targetDir $finalName
+            chmod +x $finalPath
+          }
+
       - name: Download distribution CLI executable from latest release
         shell: pwsh
         env:
@@ -167,7 +183,11 @@ jobs:
 
           # Move and rename the executable
           Move-Item $exe.FullName -Destination $finalPath -Force
-
+          
+          # Make executable on Linux
+          if ("${{ runner.OS }}" -eq "Linux") {
+            chmod +x $finalPath
+          }
 
       - name: Rename main directory
         shell: pwsh
